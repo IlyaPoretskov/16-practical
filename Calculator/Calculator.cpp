@@ -1,11 +1,12 @@
 #include <iostream>
 #include <sstream>
+#include <cmath>
 
 using namespace std;
 
 int main() {
     string buffer;
-    double a = 0, b = 0;
+    long double a = 0, b = 0;
     char operation = ' ';
 
     while (true) 
@@ -17,17 +18,32 @@ int main() {
 
         switch (operation)
         {
-            case '+':
+            case '+':     //сложение
                 cout << a + b;
                 break;
-            case '-':
+            case '-':     //вычитание
                 cout << a - b;
                 break;
-            case '/':
+            case '/':     //деление
                 cout << a / b;
                 break;
-            case '*':
+            case '*':     //умножение
                 cout << a * b;
+                break;
+            case '^':     //степень
+                cout << pow(a, b);
+                break;
+            case 's':     //корень
+                cout << pow(a, 1 / b);
+                break;
+            case 'l':     //логарифм
+                cout << log(a) / log(b);
+                break;
+            case '%':     //остаток от деления
+                cout << (int)a % (int)b;
+                break;
+            case '\\':    //целочисленное деление
+                cout << (int)(a / b);
                 break;
             default:
                 cerr << "Incorrect operation!";
